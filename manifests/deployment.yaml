@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: telegram-proxy
+  name: telegram-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telegram-proxy
+  template:
+    spec:
+      containers:
+      - image: telegram-proxy:0.2
+        name: telegram-proxy
+        resources:
+          limits:
+            cpu: '0.05'
+            memory: 128Mi
+          requests:
+            cpu: '0.01'
+            memory: 64Mi
+        env:
+        - name: HTTP_PROXY
+          value: "http://10.3.105.7:3128"
+        - name: PROXY_URL
+          value: "https://api.telegram.org"
+        - name: TIMEOUT_SECONDS
+          value: "5"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+    metadata:
+      labels:
+        app: telegram-proxy
