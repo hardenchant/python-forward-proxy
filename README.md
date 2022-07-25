@@ -3,12 +3,12 @@ You can use this small project when application not supports HTTP_PROXY/HTTPS_PR
 
 
 #### Settings
-Edit `manifests/deployment.yaml` for change ENVs:
+Edit [manifests/deployment.yaml#L24](manifests/deployment.yaml#L24) for change ENVs:
 - HTTP_PROXY – corporate proxy server with proxy protocol
 - PROXY_URL – URL which you want to proxy
 - TIMEOUT_SECONDS – non-required, timeout for PROXY_URL connection
 
-WARNING: not supported headers forwarding (edit main.py:23 for fix for it)
+WARNING: not supported headers forwarding (edit [main.py#L23](main.py#L23) for fix for it)
 
 
 #### Deploy
