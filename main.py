@@ -20,11 +20,9 @@ async def proxy_request_to_proxy(request: Request):
 
     full_path = request.path_params['full_path']
 
-    headers = {
-        'user-agent': request.headers.get('user-agent'),
-        'accept': request.headers.get('accept'),
-        'content-type': request.headers.get('content-type'),
-    }
+    headers = dict(request.headers)
+    headers.pop('host')
+    headers.pop('user-agent')
 
     content = await request.body()
 

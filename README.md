@@ -8,7 +8,7 @@ Edit `manifests/deployment.yaml` for change ENVs:
 - PROXY_URL – URL which you want to proxy
 - TIMEOUT_SECONDS – non-required, timeout for PROXY_URL connection
 
-WARNING: not supported headers forwarding (edit main.py:23 for fix for it)
+WARNING: pop some headers on forwarding (edit main.py:23 for fix it)
 
 
 #### Deploy
