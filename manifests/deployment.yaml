@@ -21,6 +21,8 @@ spec:
           requests:
             cpu: '0.01'
             memory: 64Mi
+        ports:
+          - containerPort: 8000
         env:
         - name: HTTP_PROXY
           value: "http://10.3.105.7:3128"
